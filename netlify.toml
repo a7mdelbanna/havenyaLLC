@@ -1,4 +1,5 @@
 # Netlify Configuration for Havenya Landing Page
+# Last deploy: January 2025
 
 [build]
   publish = "."
