@@ -1,0 +1,42 @@
+# Netlify Configuration for Havenya Landing Page
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Redirect index to handle clean URLs
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Form submission notification webhook
+# This triggers the Telegram notification function when a form is submitted
+# Note: You need to set this up manually in Netlify Dashboard:
+# Site Settings > Forms > Form notifications > Add notification > Outgoing webhook
+# URL: https://YOUR-SITE.netlify.app/.netlify/functions/telegram-notify
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

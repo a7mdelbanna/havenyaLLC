@@ -143,7 +143,9 @@
           <p>We've received your account deletion request. You'll receive a confirmation email within 24 hours. Your data will be permanently deleted within 30 days.</p>
         </div>
 
-        <form id="deletion-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="deletion-form" name="account-deletion" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="account-deletion">
+          <p class="hidden" style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
           <input type="hidden" name="form_type" value="account_deletion">
 
           <div class="deletion-warning">

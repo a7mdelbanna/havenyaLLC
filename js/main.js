@@ -411,16 +411,17 @@
     submitButton.disabled = true;
     submitButton.innerHTML = '<span>Sending...</span>';
 
-    // Prepare form data
+    // Prepare form data for Netlify Forms
     const formData = new FormData(form);
+    const urlEncodedData = new URLSearchParams(formData).toString();
 
-    // Send to Formspree (or similar service)
-    fetch(form.action, {
+    // Send to Netlify Forms (POST to current page)
+    fetch('/', {
       method: 'POST',
-      body: formData,
       headers: {
-        'Accept': 'application/json'
-      }
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: urlEncodedData
     })
     .then(function(response) {
       if (response.ok) {
