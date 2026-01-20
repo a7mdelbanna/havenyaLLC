@@ -272,6 +272,11 @@
     border-radius: 40px;
   }
 
+  .shopleez-app-image {
+    max-width: 280px;
+    max-height: 540px;
+  }
+
   .phone-screen {
     border-radius: 32px;
   }
@@ -514,6 +519,11 @@
     width: 220px;
     height: 460px;
     border-radius: 36px;
+  }
+
+  .shopleez-app-image {
+    max-width: 240px;
+    max-height: 480px;
   }
 
   .phone-mockup::before {

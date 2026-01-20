@@ -636,6 +636,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
+.shopleez-app-image {
+  max-width: 320px;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.4));
+}
+
 .phone-mockup {
   width: 300px;
   height: 620px;
